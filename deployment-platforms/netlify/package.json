@@ -1,0 +1,17 @@
+{
+  "name": "netlify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "12.11.7",
+    "netlify-cli": "2.19.4",
+    "netlify-lambda": "1.6.3",
+    "prisma2": "2.0.0-preview015"
+  },
+  "scripts": {
+    "dev": " netlify dev",
+    "deploy": "./build.sh",
+    "postinstall": "prisma2 generate"
+  }
+}
