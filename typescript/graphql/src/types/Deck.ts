@@ -1,0 +1,16 @@
+/* tslint:disable */
+import { objectType } from 'nexus';
+
+export const Deck = objectType({
+    name: 'Deck',
+    definition(t: any) {
+        t.model.id();
+        t.model.title();
+        t.model.list();
+        t.model.altList();
+        t.model.sideBoardList();
+        t.model.altCard();
+        t.model.author();
+        t.model.comments({ pagination: false });
+    }
+});
