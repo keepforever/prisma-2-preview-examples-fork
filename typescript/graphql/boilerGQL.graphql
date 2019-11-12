@@ -1,0 +1,58 @@
+query MyFilterDecksQuery {
+  filterDecks(searchString:"alpha") {
+    id
+    list
+  }
+}
+
+mutation MySimpleCreateUser {
+  signupUser(data: {
+    name: "a",
+    email: "a",
+    password: "a",
+    arenaHandle: "a",
+    isAdmin: false
+  }) {
+    id
+    name
+    arenaHandle
+  }
+}
+
+query MyFeedUser {
+  feedSingleUser(where: {id: "ck2dzagj900016hk92obexvto"}){
+    name
+    id
+  }
+}
+
+mutation MyCreateOneDeck {
+  myCreateOneDeckAlias(data: {
+    author:{connect:{id:"ck2w9r0qs000054e2d9nump15"}},
+    title: "thetaDeck",
+    list: "thetaList",
+    sideBoardList:"thetaSideBoardList",
+    altList: "thetaAltList",
+    altCard: "thetaAltCard"
+  }) {
+    id
+    title
+    list
+    author {
+      id
+      arenaHandle
+      name
+    }
+  }
+}
+
+query MyFeedDecks {
+  feedDecks {
+    id
+    list
+    author {
+      id
+      arenaHandle
+    }
+  }
+}

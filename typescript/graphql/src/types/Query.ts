@@ -4,11 +4,25 @@ import { idArg, makeSchema, objectType, stringArg } from 'nexus'
 export const Query = objectType({
     name: 'Query',
     definition(t) {
-        
+
         t.crud.user({
             alias: 'feedSingleUser'
         })
-        
+
+        t.crud.decks({ alias: 'feedDecks' })
+
+        t.list.field('filterDecks', {
+            type: 'Deck',
+            args: {
+                searchString: stringArg({ nullable: true })
+            },
+            resolve: (_parent, { searchString }, ctx) => {
+                return ctx.photon.decks.findMany({
+                    where: { list: { contains: searchString } }
+                })
+            }
+        })
+
         // t.crud.post({
         //     alias: 'post',
         // })
